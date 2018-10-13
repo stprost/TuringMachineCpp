@@ -183,8 +183,6 @@ In::In(int argc, char *argv[]) {
 
     Output out;
     if (argc == 6 && (strcmp(argv[5], "-p")) == 0) {
-        cout << "Tapes:" << endl;
-        output << "Tapes:" << endl;
         out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers, output);
         out.printCommands(q, maxQ, numOfTapes, output);
 
