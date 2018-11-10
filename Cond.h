@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Cond {
-public:
+struct Cond {
     string prevSymb;
     string nextSymb;
     string move;

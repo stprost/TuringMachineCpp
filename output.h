@@ -2,18 +2,20 @@
 #ifndef TURINGMACHINEC_OUTPUT_H
 #define TURINGMACHINEC_OUTPUT_H
 
-#include <fstream>
-#include <iostream>
-#include <vector>
-#include "Cond.h"
-
-using namespace std;
+#include "header.h"
 
 class Output {
 public:
-    void  printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, ofstream &output);
-    void printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes, ofstream &output);
-    void printCommand(vector<vector<Cond>> &q, int numOfTapes, int row, int col, ofstream &output);
+    Output(ofstream &output):output(output){}
+    void  printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers);
+    void printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes);
+    void printCommand(vector<vector<Cond>> &q, int numOfTapes, int row, int col);
+    void print(string str);
+    void println(string str);
+    void closeFile();
+
+private:
+    ofstream &output;
 };
 
 

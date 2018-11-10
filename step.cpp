@@ -1,14 +1,11 @@
+#include "step.h"
 
-#include "header.h"
-
-
-Step::Step(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, vector<vector<Cond>> &q,
-           bool debug, Output out, ofstream &output) {
+void Step::step(Output out) {
     int quit = 0, count;
     int tempCond = 1;
     char tempTapeSymb[numOfTapes];
     bool flag, stop = false;
-    out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers, output);
+    out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers);
     while (quit != 1000) {
         flag = false;
         //поиск подходящего состояния
@@ -44,8 +41,8 @@ Step::Step(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, vector<ve
                         stop = true;
                     }
                 }
-                out.printCommand(q, numOfTapes, tempCond, i, output);
-                out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers, output);
+                out.printCommand(q, numOfTapes, tempCond, i);
+                out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers);
                 tempCond = q[tempCond][i].nextCond;
                 break;
             }
@@ -56,7 +53,7 @@ Step::Step(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, vector<ve
         }
         if (stop) {
             cout << "End of program" << endl;
-            output << "End of program" << endl;
+            out.println("End of program");
             break;
         }
         if (debug) { //если выбран режим отладки
@@ -66,7 +63,7 @@ Step::Step(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, vector<ve
                 fflush(stdin); //очистка буфера
                 if (!strcmp(comand, "b")) {
                     cout << "Program break" << endl;
-                    output.close();
+                    out.closeFile();
                     exit(403);
                 }
                 if (!strcmp(comand, "s")) {

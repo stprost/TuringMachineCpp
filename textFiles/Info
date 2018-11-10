@@ -1,0 +1,66 @@
+Turing simulator
+to run the program type in command line
+Turing.exe input1.txt input2.txt output.txt -a/-o[-p]
+-a runs the program,
+-o runs debug,
+-p gives you information about your input data.
+input1.txt should contain such commands:
+a[x1,x2,...,xn]  b[y1,y2,...,yn][D1,D2,...,Dn], where a and b are the numbers of temporary and next states of machine
+[x1,x2,...,xn] and [y1,y2,...,yn] are the symbols on the tape
+[D1,D2,...,Dn] are the direction of move (L - left, R - right, _ - no move, S - stop).
+input2.txt should contain the initial tape in such structure:
+__v___
+100001
+___v__
+100321
+if you run debug
+s - one step,
+b - break,
+f - follow the program in standart mode.
+Example:
+input1.txt
+2
+1[0,0] 2[1,1][R,R]
+2[1,1] 3[_,0][_,R]
+2[0,1] 2[0,1][L,_]
+3[_,0] 2[1,1][R,S]
+input2.txt
+__v___
+100001
+_v____
+101010
+output.txt
+Tapes:
+__v___
+100001
+_v____
+101010
+Running command
+1[0,0] 2[1,1][R,R]
+Tapes:
+___v__
+101001
+__v___
+111010
+Running command
+2[0,1] 2[0,1][L,_]
+Tapes:
+__v___
+101001
+__v___
+111010
+Running command
+2[1,1] 3[_,0][_,R]
+Tapes:
+__v___
+10_001
+___v__
+110010
+Running command
+3[_,0] 2[1,1][R,S]
+Tapes:
+___v__
+101001
+___v__
+110110
+End of program

@@ -1,8 +1,7 @@
 
 #include "output.h"
-#include "header.h"
 
-void Output::printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers, ofstream &output) {
+void Output::printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointers) {
     int count;
     cout << "Tapes:" << endl;
     output << "Tapes:" << endl;
@@ -32,7 +31,7 @@ void Output::printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointe
     }
 }
 
-void Output::printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes, ofstream &output) {
+void Output::printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes) {
     cout << "Commands:" << endl;
     output << "Commands:" << endl;
     for (int i = 1; i <= maxQ; i++) {
@@ -84,7 +83,7 @@ void Output::printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes, of
     output << endl;
 }
 
-void Output::printCommand(vector<vector<Cond>> &q, int numOfTapes, int row, int col, ofstream &output) {
+void Output::printCommand(vector<vector<Cond>> &q, int numOfTapes, int row, int col) {
     cout << "Running command" << endl;
     output << "Running command" << endl;
     cout << row << "[";
@@ -128,4 +127,16 @@ void Output::printCommand(vector<vector<Cond>> &q, int numOfTapes, int row, int 
     }
     cout << endl;
     output << endl;
+}
+
+void Output::print(string str){
+    output << str;
+}
+
+void Output::println(string str){
+    output << str << endl;
+}
+
+void Output::closeFile() {
+    output.close();
 }
