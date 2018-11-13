@@ -50,4 +50,9 @@ void CheckArgs::checkArguments(int argc, char *argv[]) {
     if (strcmp(argv[4], "-o") == 0) debug = true;
 }
 
+void CheckArgs::printInputData(vector<vector<Cond>> q, int numOfTapes, string *arrayOfTapes, int *arrayOfPointers, Output out) {
+    out.printTapes(arrayOfTapes, numOfTapes, arrayOfPointers);
+    out.printCommands(q, numOfTapes);
+}
+
 bool CheckArgs::getDebug() { return debug; }

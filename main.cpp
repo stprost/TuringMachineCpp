@@ -21,6 +21,10 @@ int main(int argc, char *argv[]) {
     Tapes tapes(inputTwo, 2);
     tapes.readTapes();
 
+    if (argc == 6 && (strcmp(argv[5], "-p") == 0)) {
+        checkArgs.printInputData(conditions.getQ(), conditions.getNumOfTapes(), tapes.getArrayOfTapes(),
+                                 tapes.getArrayOfPointers(), out);
+    }
     Step step(tapes.getArrayOfTapes(), conditions.getNumOfTapes(), tapes.getArrayOfPointers(), conditions.getQ(),
               checkArgs.getDebug());
     step.step(out);

@@ -31,10 +31,10 @@ void Output::printTapes(string *arrayOfTapes, int numOfTapes, int *arrayOfPointe
     }
 }
 
-void Output::printCommands(vector<vector<Cond>> &q, int maxQ, int numOfTapes) {
+void Output::printCommands(vector<vector<Cond>> &q,  int numOfTapes) {
     cout << "Commands:" << endl;
     output << "Commands:" << endl;
-    for (int i = 1; i <= maxQ; i++) {
+    for (int i = 1; i < q.size(); i++) {
         for (int j = 0; j < q[i].size() - 1; j++) {
             cout << i << "[";
             output  << i << "[";

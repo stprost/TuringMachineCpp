@@ -13,6 +13,8 @@ public:
 
     bool getDebug();
 
+    void printInputData(vector<vector<Cond>> q, int numOfTapes, string *arrayOfTapes, int *arrayOfPointers, Output out);
+
 private:
     ifstream &inputOne;
     ifstream &inputTwo;
